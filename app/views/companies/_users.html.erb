@@ -1,0 +1,26 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t("helpers.labels.users") %></h1>
+</div>
+<div class="modal fade" id="user-modal"></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t '.name', :default => t("helpers.labels.name") %></th>
+      <th><%= t '.email', :default => t("helpers.labels.email") %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.company.users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_path(user), :remote => true, :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
