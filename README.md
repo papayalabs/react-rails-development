@@ -1,15 +1,4 @@
-Pymenta Rails Project
-===========================================================
 
-Pymenta is a very simple Cloud ERP System created for small companies to create, 
-manage and print documents ( invoices, notes, quotations, credits, etc). 
-You can manage warehouses, providers and clients. Also products and stock. 
-Print Statistic Reports. Designed to work in the Cloud. 
-
-Demo Application
-----------------
-
-A demo application can be found at http://pymenta.herokuapp.com/
 
 Local Installation
 ------------------
@@ -18,7 +7,7 @@ Local Installation
 
 2. Clone the repository
 
-  `git clone https://github.com/manfergo25/pymenta.git`
+  `git clone https://github.com/papayalabs/react-rails-development.git´
 
 3. Configure your database in config/database.yml The current config assumes a custom local SQLite configuration.
 
@@ -57,7 +46,7 @@ In order to use heroku, you need to:
 
 	`heroku run rake db:migrate`
 
-Additionally, we�ll need to the set the AWS configuration variables on the Heroku application to use paperclip:
+Additionally, we’ll need to the set the AWS configuration variables on the Heroku application to use paperclip:
 
 	`$ heroku config:set S3_BUCKET_NAME=your_bucket_name`
 	`$ heroku config:set AWS_ACCESS_KEY_ID=your_access_key_id`
