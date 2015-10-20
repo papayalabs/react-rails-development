@@ -25,7 +25,7 @@ Local Installation
 
   `rails s`
 
-Using Heroku
+Using Heroku ( https://fierce-headland-9673.herokuapp.com )
 ------------------
 
 In order to use heroku, you need to:
