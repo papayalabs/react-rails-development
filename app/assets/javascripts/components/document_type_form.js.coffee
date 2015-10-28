@@ -10,7 +10,7 @@
       headers:
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     $.post '/document_types', { document_type: @state }, (data) =>
-      @props.handleNewRecord data
+      @props.handleNewDocumentType data
       @setState @getInitialState()
     , 'JSON'
   render: ->

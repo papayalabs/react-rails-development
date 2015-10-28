@@ -4,13 +4,15 @@
   getDefaultProps: ->
     document_types: []
   addDocumentType: (document_type) ->
-    document_types = @state.document_types.slice()
-    document_types.push document_type
+    document_types = React.addons.update(@state.document_types, { $push: [document_type] })
     @setState document_types: document_types
   deleteDocumentType: (document_type) ->
-    document_types = @state.document_types.slice()
-    index = document_types.indexOf document_type
-    document_types.splice index, 1
+    index = @state.document_types.indexOf document_type
+    document_types = React.addons.update(@state.document_types, { $splice: [[index, 1]] })
+    @replaceState document_types: document_types
+  updateDocumentType: (document_type, data) ->
+    index = @state.document_types.indexOf document_type
+    document_types = React.addons.update(@state.document_types, { $splice: [[index, 1, data]] })
     @replaceState document_types: document_types
   render: ->
     React.DOM.div
@@ -18,7 +20,7 @@
       React.DOM.h2
         className: 'title'
         'Document Types'
-      React.createElement DocumentTypeForm, handleNewRecord: @addDocumentType, form_data: @props.form_data
+      React.createElement DocumentTypeForm, handleNewDocumentType: @addDocumentType, form_data: @props.form_data
       React.DOM.hr null
       React.DOM.table
         className: 'table table-striped'
@@ -31,4 +33,4 @@
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for document_type in @state.document_types
-            React.createElement DocumentType, key: document_type.id, document_type: document_type, handleDeleteDocumentType: @deleteDocumentType
+            React.createElement DocumentType, key: document_type.id, document_type: document_type, handleDeleteDocumentType: @deleteDocumentType, handleEditDocumentType: @updateDocumentType
