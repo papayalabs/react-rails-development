@@ -1,3 +1,11 @@
+<%= react_component 'DocumentTypes', { data: current_user.company.document_types,
+                                       form_data: {
+                                           account_types: DocumentType::ACCOUNT_TYPES,
+                                           stock_types: DocumentType::STOCK_TYPES,
+                                           select_prompt: t('.select', :default => t("helpers.links.select")),
+                                       }
+                                   } %>
+
 <%- model_class = DocumentType -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>

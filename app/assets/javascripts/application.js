@@ -15,6 +15,9 @@
 //= require jquery.ui.autocomplete
 //= require twitter/bootstrap
 //= require bootstrap
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 //jQuery to collapse the navbar on scroll

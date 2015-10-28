@@ -52,3 +52,4 @@ group :test do
 end
 ruby '2.0.0'
 
+gem 'react-rails', '~> 1.4.0'
