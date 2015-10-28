@@ -52,6 +52,7 @@
           name: 'stock'
           value: 1
           onChange: @handleChange
+          checked: @state.stock
         'Stock'
       React.DOM.button
         type: 'submit'
@@ -60,6 +61,12 @@
         'Create'
   handleChange: (e) ->
     name = e.target.name
-    @setState "#{ name }": e.target.value
+    if e.target.name != 'stock'
+      value = e.target.value
+    else if e.target.checked
+      value = 1
+    else
+      value = 0
+    @setState "#{ name }": value
   valid: ->
     @state.description and @state.account_type and @state.stock_type

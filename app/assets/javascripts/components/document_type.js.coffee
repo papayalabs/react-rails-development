@@ -36,7 +36,7 @@
       React.DOM.td null, @props.document_type.description
       React.DOM.td null, @props.document_type.account_type
       React.DOM.td null, @props.document_type.stock_type
-      React.DOM.td null, @props.document_type.stock
+      React.DOM.td null, if @props.document_type.stock then 'Yes' else 'No'
       React.DOM.td null,
         React.DOM.a
           className: 'btn btn-mini'
