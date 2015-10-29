@@ -19,7 +19,7 @@
       className: 'document-types'
       React.DOM.h1
         className: 'title'
-        'Document Types'
+        @props.page_header
       React.createElement DocumentTypeForm, handleNewDocumentType: @addDocumentType, form_data: @props.form_data
       React.DOM.hr null
       React.DOM.table
