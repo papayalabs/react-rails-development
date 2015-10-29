@@ -14,7 +14,14 @@
                         data: Account.where("domain = ? AND type = ?", current_user.domain, "Warehouse"),
                         page_header: t('.title', :default => Warehouse.model_name.human.pluralize.titleize),
                         form_data: {
-                            select_prompt: t('.select', :default => t("helpers.links.select")),
+                        }
+                    } %>
+
+<%= react_component 'Categories',
+                    {
+                        data: current_user.company.categories,
+                        page_header: t('.title', :default => Category.model_name.human.pluralize.titleize),
+                        form_data: {
                         }
                     } %>
 

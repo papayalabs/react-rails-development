@@ -7,5 +7,5 @@ class Category < ActiveRecord::Base
   validates :description, presence: true
   
   belongs_to :company, :foreign_key => 'domain'
-  has_many :products, :dependent => :restrict 
+  # has_many :products, :dependent => :restrict
 end
