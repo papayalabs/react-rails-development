@@ -17,7 +17,7 @@
   render: ->
     React.DOM.div
       className: 'document-types'
-      React.DOM.h2
+      React.DOM.h1
         className: 'title'
         'Document Types'
       React.createElement DocumentTypeForm, handleNewDocumentType: @addDocumentType, form_data: @props.form_data
@@ -33,4 +33,4 @@
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for document_type in @state.document_types
-            React.createElement DocumentType, key: document_type.id, document_type: document_type, handleDeleteDocumentType: @deleteDocumentType, handleEditDocumentType: @updateDocumentType
+            React.createElement DocumentType, key: document_type.id, document_type: document_type, handleDeleteDocumentType: @deleteDocumentType, handleEditDocumentType: @updateDocumentType, form_data: @props.form_data
