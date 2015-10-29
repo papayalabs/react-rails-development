@@ -37,6 +37,10 @@ class CompaniesController < ApplicationController
   # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /companies/1/edit
@@ -67,9 +71,11 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
+        format.js
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
         format.json { head :no_content }
       else
+        format.js { render action: "edit" }
         format.html { render action: "edit" }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
