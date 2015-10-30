@@ -46,6 +46,10 @@ class CompaniesController < ApplicationController
   # GET /companies/1/edit
   def edit_formats
     @company = Company.find(params[:id])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # POST /companies
@@ -71,7 +75,10 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        format.js
+        format.js do
+          render 'update_formats' if params[:update_formats]
+          render 'update'
+        end
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
         format.json { head :no_content }
       else

@@ -1,0 +1,29 @@
+<%= render 'shared/error_messages', :object => @company %>
+<dl class="dl-horizontal">
+  <dt><strong><%= @company.counter %> de <%= @company.limit %></strong></dt>
+</dl>
+<div class="progress progress-warning">
+  <div class="bar" style="width: <%= 100*@company.counter/@company.limit %>%"></div>
+</div>
+<dl class="dl-horizontal">
+  <dt><strong><%=t '.initial_cycle', :default =>  t("helpers.labels.initial_cycle") %></strong></dt>
+  <dd><%=  @company.initial_cycle.strftime(@company.date_format) %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt><strong><%=t '.final_cycle', :default =>  t("helpers.labels.final_cycle") %></strong></dt>
+  <dd><%= @company.final_cycle.strftime(@company.date_format) %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt><strong><%=t '.plan', :default =>  t("helpers.labels.plan") %></strong></dt>
+  <% if @company.plan == nil || @company.plan == "GRATIS" %>
+    <dd><td><span class="label label-important">GRATIS</span> </td></dd>
+    </dl>
+  <% elsif @company.plan != nil && @company.plan == "PAGO" %>
+    <dd><td><span class="label label-success"> <%= @company.plan %> </span></td></dd>
+    </dl>
+  <% end %>
+
+  <dl class="dl-horizontal">
+    <%= link_to t('.edit_formats', :default => t("helpers.links.edit_formats")),
+                edit_formats_path(:id => @company.id), :class => 'btn',:style => "width:90%;", remote: true   %>
+  </dl>
