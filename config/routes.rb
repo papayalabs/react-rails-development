@@ -84,7 +84,9 @@ Pymenta::Application.routes.draw do
     match '/:locale/privacy' => 'privacy#index', :as => :privacy
     match '/:locale/terms' => 'terms#index', :as => :terms
     match '/:locale/guest/guest_list' => 'guest#guest_list', :as => :guest_list
-  end  
+    match '/upload_logo' => 'companies#upload_logo', :as => :upload_logo
+    match '/delete_logo' => 'companies#delete_logo', :as => :delete_logo
+  end
 
 end
 

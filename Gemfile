@@ -53,3 +53,4 @@ end
 ruby '2.0.0'
 
 gem 'react-rails', '~> 1.4.0'
+gem 'remotipart', '~> 1.0'

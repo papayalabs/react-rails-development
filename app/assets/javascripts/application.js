@@ -18,6 +18,7 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require jquery.remotipart
 //= require_tree .
 
 //jQuery to collapse the navbar on scroll

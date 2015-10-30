@@ -146,6 +146,18 @@ class CompaniesController < ApplicationController
       end
    end
 
+  def upload_logo
+    @company = current_user.company
+    @company.logo = params[:logo]
+    @logo_uploaded = @company.save
+  end
+
+  def delete_logo
+    @company = current_user.company
+    @company.logo = nil
+    @company.save
+  end
+
    # ############# Para Pruebas 
    #  def became_free
    #     @company = Company.find(current_user.company.id)

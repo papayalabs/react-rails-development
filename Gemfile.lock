@@ -197,6 +197,7 @@ GEM
       execjs
       rails (>= 3.2)
       tilt
+    remotipart (1.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rolify (4.1.1)
@@ -291,6 +292,7 @@ DEPENDENCIES
   rails (= 3.2.14)
   rails_12factor
   react-rails (~> 1.4.0)
+  remotipart (~> 1.0)
   rolify
   rspec-rails
   sass (~> 3.2.5)

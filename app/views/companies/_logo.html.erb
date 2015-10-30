@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="span3">
+    <div id="image">
+      <%= image_tag current_user.company.logo.url(:square) %>
+    </div>
+
+  </div>
+  <div class="span3">
+    <%= form_tag upload_logo_path, method: :patch, id: 'photoinfo', remote: true, html: { multipart: true } do %>
+      <%= file_field_tag :logo, accept: 'image/png,image/gif,image/jpeg, image/jpg', id: 'uploadAvatar' %>
+      <%= submit_tag 'Submit Logo', id: 'submitPhoto', class: 'btn btn-default' %>
+    <% end %>
+
+    <% if current_user.company.logo.exists? %>
+      <%= link_to 'Delete Logo', delete_logo_path, remote: true, class: 'btn btn-danger' %>
+    <% end %>
+
+  </div>
+</div>
+
