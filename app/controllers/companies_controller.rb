@@ -76,8 +76,11 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.update_attributes(params[:company])
         format.js do
-          render 'update_formats' if params[:update_formats]
-          render 'update'
+          if params[:update_formats]
+            render 'update_formats'
+          else
+            render 'update'
+          end
         end
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
         format.json { head :no_content }
