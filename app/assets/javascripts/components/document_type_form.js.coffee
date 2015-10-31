@@ -45,6 +45,7 @@
           React.DOM.option
             value: option
             option
+      ' '
       React.DOM.label
         className: 'checkbox'
         React.DOM.input
@@ -54,6 +55,7 @@
           onChange: @handleChange
           checked: @state.stock
         'Stock'
+      ' '
       React.DOM.button
         type: 'submit'
         className: 'btn btn-primary'
