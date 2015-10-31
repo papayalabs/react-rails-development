@@ -6,9 +6,11 @@
 
   </div>
   <div class="span3">
-    <%= form_tag upload_logo_path, method: :patch, id: 'photoinfo', remote: true, html: { multipart: true } do %>
-      <%= file_field_tag :logo, accept: 'image/png,image/gif,image/jpeg, image/jpg', id: 'uploadAvatar' %>
-      <%= submit_tag 'Submit Logo', id: 'submitPhoto', class: 'btn btn-default' %>
+    <%= form_tag upload_logo_path, method: :patch, id: 'company-logo-form', remote: true, html: { multipart: true } do %>
+      <%= file_field_tag :logo, accept: 'image/png,image/gif,image/jpeg, image/jpg', id: 'uploadLogo' %>
+      <div style="display: none;">
+        <%= submit_tag 'Submit Logo', id: 'submitLogo', class: 'btn btn-default' %>
+      </div>
     <% end %>
 
     <% if current_user.company.logo.exists? %>
