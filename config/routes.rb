@@ -1,5 +1,10 @@
 Pymenta::Application.routes.draw do
 
+  resources :service_payments do
+    get :execute
+    get :cancel
+  end
+
   resources :products do
     get "product_list_report", :on => :collection
   end

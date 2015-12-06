@@ -1,9 +1,9 @@
 <%- model_class = Company -%>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script type="text/javascript" src="https://www.mercadopago.com/org-img/jsapi/mptools/buttons/render.js"></script>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
+
 <div class="row-fluid">
   <div class="span7">
     <div id="companyPlace">
@@ -16,5 +16,6 @@
 </div>
 
 <%= render :partial => 'users' %>
+<%= render :partial => 'service_payments' %>
 
 

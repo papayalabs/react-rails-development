@@ -71,7 +71,9 @@
       welcome_body: "Bienvenido a Pymenta. Puede empezar a usar el Plan Gratuito sin ningún tipo de costo. Gracias por elegirnos." 
       NOT_PAID: "NO PAGADO"
       PARTIAL_PAID: "PAGADO PARCIAL"
-      PAID: "PAGADO"    
+      PAID: "PAGADO"
+      service_payments: "Pagos del Servicio"
+      payment_id: ID del Pago    
     links:
       cancel: "Cancelar"
       select: "Seleccion de la lista.."	
