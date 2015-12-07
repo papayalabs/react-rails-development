@@ -19,11 +19,11 @@
       <dd><td><span class="label label-important">GRATIS</span> </td></dd>
     </dl>
     <dl class="dl-horizontal">
-        <dt><%= link_to t('.subscribe_month', :default => t("helpers.links.subscribe_month")), new_service_payment_path(:amount => 22, :description => t("helpers.links.subscribe_month"), :period => "month"), :class => 'btn btn-primary' %></dt>
+        <dt><%= link_to t('.subscribe_month', :default => t("helpers.links.subscribe_month")), subscribe_month_path, :class => 'btn btn-primary' %></dt>
          <dd><%= number_to_currency(22, unit: '$', separator: @company.separator , delimiter: @company.delimiter, format: "%u %n") %></dd> 
       </dl>
       <dl class="dl-horizontal">
-        <dt><%= link_to t('.subscribe_year', :default => t("helpers.links.subscribe_year")), new_service_payment_path(:amount => 220, :description => t("helpers.links.subscribe_year"), :period => "year"), :class => 'btn btn-danger' %></dt>
+        <dt><%= link_to t('.subscribe_year', :default => t("helpers.links.subscribe_year")), subscribe_year_path, :class => 'btn btn-danger' %></dt>
         <dd><%= number_to_currency(220, unit: '$', separator: @company.separator , delimiter: @company.delimiter, format: "%u %n") %></dd> 
       </dl>
   <% elsif @company.plan != nil && @company.plan == "PAGO" %>

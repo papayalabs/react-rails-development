@@ -22,7 +22,7 @@
         <td><%= service_payment.created_at.strftime(@company.date_format) %></td>
         <td><%= service_payment.description %></td>
         <td><%= number_to_currency(service_payment.amount, unit: '$', separator: @company.separator , delimiter: @company.delimiter, format: "%u %n") %></td>
-        <td><%= service_payment.state %></td>
+        <%= display_state service_payment.state %>
       </tr>
     <% end %>
   </tbody>

@@ -73,7 +73,9 @@
       PARTIAL_PAID: "PAGADO PARCIAL"
       PAID: "PAGADO"
       service_payments: "Pagos del Servicio"
-      payment_id: ID del Pago    
+      payment_id: "ID del Pago"
+      approved: "Aprobado"
+      cancelled: "Cancelado"    
     links:
       cancel: "Cancelar"
       select: "Seleccion de la lista.."	

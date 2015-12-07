@@ -4,22 +4,35 @@ class ServicePaymentsController < ApplicationController
     @service_payments = current_user.company.service_payments.all( :limit => 10, :order => "id DESC" )
   end
 
-  def new
+  def subscribe_month
     @service_payment = ServicePayment.new
-    @service_payment.domain = current_user.domain
-    @service_payment.amount = params[:amount]
-    @service_payment.description = params[:description]  
-    @service_payment.period = params[:period] 
-    @service_payment.return_url = service_payment_execute_url(":service_payment_id")
-    @service_payment.cancel_url = service_payment_cancel_url(":service_payment_id")
-    if @service_payment.save
-      if @service_payment.approve_url
-        redirect_to @service_payment.approve_url
+    @service_payment.amount = 22
+    @service_payment.description = t("helpers.links.subscribe_month") 
+    @service_payment.period = 'month'   
+    subscribe(@service_payment)
+  end  
+  
+  def subscribe_year
+    @service_payment = ServicePayment.new
+    @service_payment.amount = 220
+    @service_payment.description = t("helpers.links.subscribe_year") 
+    @service_payment.period = 'year'   
+    subscribe(@service_payment)
+  end
+
+
+  def subscribe(service_payment)
+    service_payment.domain = current_user.domain
+    service_payment.return_url = service_payment_execute_url(":service_payment_id")
+    service_payment.cancel_url = service_payment_cancel_url(":service_payment_id")
+    if service_payment.save
+      if service_payment.approve_url
+        redirect_to service_payment.approve_url
       else
-        redirect_to service_payments_path, :notice => "ServicePayment[#{@service_payment.description}] placed successfully"
+        redirect_to company_path(:id => current_user.company.id), :notice => t('helpers.labels.service_payments')+" "+t('helpers.labels.approved')
       end
     else
-      render companies_path, :alert  => @service_payment.errors.to_a.join(", ")
+      render company_path(:id => current_user.company.id), :alert  => service_payment.errors.to_a.join(", ")
     end
   end
 
@@ -43,9 +56,9 @@ class ServicePaymentsController < ApplicationController
          @company.limit = 1000000
          @company.save
        end           
-      redirect_to companies_path, :notice => "ServicePayment[#{service_payment.description}] placed successfully"
+      redirect_to company_path(:id => current_user.company.id), :notice => t('helpers.labels.service_payments')+" "+t('helpers.labels.approved')
     else
-      redirect_to companies_path, :alert => service_payment.payment.error.inspect
+      redirect_to company_path(:id => current_user.company.id), :alert => service_payment.payment.error.inspect
     end
   end
 
@@ -55,7 +68,7 @@ class ServicePaymentsController < ApplicationController
       service_payment.state = "cancelled"
       service_payment.save
     end
-    redirect_to companies_path, :notice => "ServicePayment cancelled"
+    redirect_to company_path(:id => current_user.company.id), :notice => t('helpers.labels.service_payments')+" "+t('helpers.labels.cancelled')
   end
 
   def show

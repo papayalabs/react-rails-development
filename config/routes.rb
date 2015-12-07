@@ -82,8 +82,8 @@ Pymenta::Application.routes.draw do
     match '/:locale/payments_documents/new_modal' => 'payments_documents#new_modal', :as => :new_modal
     match '/:locale/payments_documents/create_payments_document_account' => 'payments_documents#create_payments_document_account', :as => :create_payments_document_account   
     match '/:locale/companies/edit_formats' => 'companies#edit_formats', :as => :edit_formats 
-    match '/:locale/companies/subscribe_month' => 'companies#subscribe_month', :as => :subscribe_month 
-    match '/:locale/companies/subscribe_year' => 'companies#subscribe_year', :as => :subscribe_year 
+    match '/:locale/service_payments/subscribe_month' => 'service_payments#subscribe_month', :as => :subscribe_month 
+    match '/:locale/service_payments/subscribe_year' => 'service_payments#subscribe_year', :as => :subscribe_year 
     match '/:locale/companies/subscribe_alert' => 'companies#subscribe_alert', :as => :subscribe_alert 
 #    match '/:locale/companies/became_free' => 'companies#became_free', :as => :became_free 
     match '/:locale/privacy' => 'privacy#index', :as => :privacy
