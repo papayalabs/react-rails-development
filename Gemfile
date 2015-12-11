@@ -5,10 +5,11 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'activeadmin', github: "gregbell/active_admin"
 gem 'mercadopago-sdk'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'sass', '~> 3.2.5'
-gem 'jquery-rails'
+gem 'jquery-rails', "< 3.0.0"
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'bootstrap-select-rails'
@@ -33,7 +34,7 @@ gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'bootswatch-rails'
 gem 'uuidtools'
 gem "will_paginate", '~> 3.0'
-gem 'country_select'
+#gem 'country_select', '~> 2.1.0'
 
 # PayPal
 gem 'paypal-sdk-core', '~> 0.3.2'

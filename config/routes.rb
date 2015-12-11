@@ -1,5 +1,8 @@
 Pymenta::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :service_payments do
     get :execute
     get :cancel
@@ -55,7 +58,9 @@ Pymenta::Application.routes.draw do
     end
     root :to => "application#index"
     devise_for :users, :controllers => { :registrations => "registrations"}
+  ActiveAdmin.routes(self)
     devise_for :users 
+  ActiveAdmin.routes(self)
     resources :users
     match '/:locale/products/search' => 'products#search', :as => :product_search
     match '/:locale/clients/search' => 'clients#search', :as => :client_search

@@ -7,6 +7,7 @@ class CreateServicePayments < ActiveRecord::Migration
       t.string :amount
       t.string :description
       t.string :period
+      t.string :method
       t.string :domain
 
       t.timestamps

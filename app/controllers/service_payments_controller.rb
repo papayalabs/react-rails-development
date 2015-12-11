@@ -8,7 +8,8 @@ class ServicePaymentsController < ApplicationController
     @service_payment = ServicePayment.new
     @service_payment.amount = 22
     @service_payment.description = t("helpers.links.subscribe_month") 
-    @service_payment.period = 'month'   
+    @service_payment.period = 'month'  
+    @service_payment.method = 'Paypal'      
     subscribe(@service_payment)
   end  
   
@@ -16,7 +17,8 @@ class ServicePaymentsController < ApplicationController
     @service_payment = ServicePayment.new
     @service_payment.amount = 220
     @service_payment.description = t("helpers.links.subscribe_year") 
-    @service_payment.period = 'year'   
+    @service_payment.period = 'year'  
+    @service_payment.method = 'Paypal'  
     subscribe(@service_payment)
   end
 
@@ -66,6 +68,7 @@ class ServicePaymentsController < ApplicationController
     service_payment = current_user.company.service_payments.find(params[:service_payment_id])
     unless service_payment.state == "approved"
       service_payment.state = "cancelled"
+      service_payment.method = "Paypal"
       service_payment.save
     end
     redirect_to company_path(:id => current_user.company.id), :notice => t('helpers.labels.service_payments')+" "+t('helpers.labels.cancelled')

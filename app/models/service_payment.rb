@@ -2,7 +2,7 @@ class ServicePayment < ActiveRecord::Base
   set_primary_key "id"
   include UUIDHelper
   belongs_to :company, :foreign_key => 'domain'
-  attr_accessible :amount, :description, :payment_id, :state, :period, :domain
+  attr_accessible :amount, :description, :payment_id, :state, :period, :method, :domain
   
   validates_presence_of :amount, :description
 

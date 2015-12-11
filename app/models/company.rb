@@ -9,16 +9,16 @@ class Company < ActiveRecord::Base
   validates :plan, inclusion: PLANS
   
   has_many :users, :foreign_key => 'domain'
-  has_many :products, :foreign_key => 'domain'
   has_many :brands, :foreign_key => 'domain'
   has_many :categories, :foreign_key => 'domain'
   has_many :accounts, :foreign_key => 'domain'
   has_many :document_types, :foreign_key => 'domain'
-  has_many :stocks, :foreign_key => 'domain'
-  has_many :documents, :foreign_key => 'domain'
-  has_many :document_lines, :foreign_key => 'domain'
-  has_many :payments, :foreign_key => 'domain'
-  has_many :payments_documents, :foreign_key => 'domain'
+#  has_many :products, :foreign_key => 'domain'
+#  has_many :stocks, :foreign_key => 'domain'
+#  has_many :documents, :foreign_key => 'domain'
+#  has_many :document_lines, :foreign_key => 'domain'
+#  has_many :payments, :foreign_key => 'domain'
+#  has_many :payments_documents, :foreign_key => 'domain'
   has_many :service_payments, :foreign_key => 'domain'
   
 has_attached_file :logo, styles: {
